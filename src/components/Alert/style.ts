@@ -9,8 +9,8 @@ export const Label = styled.p`
 `;
 
 export const AlertForm = styled.div`
-  width: 300px;
-  height: 250px;
+  width: 200px;
+  height: 180px;
   border-radius: 14px;
   padding: 10px;
   background-color: ${({ theme }) => theme.personal.personal50};
