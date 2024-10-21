@@ -1,10 +1,22 @@
-import React from "react";
+import React, { Dispatch, SetStateAction } from "react";
+import * as S from "./style";
+import Button from "../common/Button";
 
-const Alert = () => {
+interface IAlertProps {
+  label?: string;
+  setActive: Dispatch<SetStateAction<boolean>>;
+}
+
+const Alert = ({ label, setActive }: IAlertProps) => {
   return (
-    <>
-      <div>준비중 입니당 {"><"} </div>
-    </>
+    <S.AlertBackground>
+      <S.AlertForm>
+        <S.Label>{label && label != "" ? label : "준비 중입니다."}</S.Label>
+        <Button onClick={() => setActive(false)} isActive>
+          확인
+        </Button>
+      </S.AlertForm>
+    </S.AlertBackground>
   );
 };
 
