@@ -3,15 +3,14 @@ import * as S from "./style";
 import Button from "../common/Button";
 
 interface IAlertProps {
-  label?: string;
   setActive: Dispatch<SetStateAction<boolean>>;
 }
 
-const Alert = ({ label, setActive }: IAlertProps) => {
+const Alert = ({ setActive }: IAlertProps) => {
   return (
     <S.AlertBackground>
       <S.AlertForm>
-        <S.Label>{label && label != "" ? label : "준비 중입니다."}</S.Label>
+        <S.Label> 준비 중입니다.</S.Label>
         <Button onClick={() => setActive(false)} isActive>
           확인
         </Button>
