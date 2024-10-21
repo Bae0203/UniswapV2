@@ -1,5 +1,5 @@
 export const fontColor = {
-  normal: "#fff",
+  normal: "#ffffff",
   active: "#959595",
   etc: "#8F95A9",
   disabled: "#6F7075",

@@ -1,19 +1,22 @@
 import styled, { css } from "styled-components";
 
 const activeButtonStyle = css`
-  font-color: ${({ theme }) => theme.font.normal};
+  color: ${({ theme }) => theme.font.normal};
   background-color: ${({ theme }) => theme.personal.etc};
 `;
 
 const disableButtonStyle = css`
-  font-color: ${({ theme }) => theme.font.disabled};
+  color: ${({ theme }) => theme.font.disabled};
   background-color: ${({ theme }) => theme.personal.personal70};
 `;
 
 export const Button = styled.button<{ isActive: boolean }>`
+  ${({ isActive }) => (isActive ? activeButtonStyle : disableButtonStyle)}
   width: 100%;
   padding: 1rem;
   font-size: 1rem;
   text-align: center;
-  ${({ isActive }) => (isActive ? activeButtonStyle : disableButtonStyle)}
+  border: none;
+  box-shadow: none;
+  border-radius: 10px;
 `;
