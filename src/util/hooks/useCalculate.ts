@@ -6,8 +6,8 @@ interface ICalculateProps {
 }
 
 const useCalculate = () => {
-  const [token1, setToken1] = useState<number>();
-  const [token2, setToken2] = useState<number>();
+  const [token1, setToken1] = useState<number | undefined>();
+  const [token2, setToken2] = useState<number | undefined>();
 
   const ChangeEvent = (index: number, event: ChangeEvent<HTMLInputElement>) => {
     if (index === 1) {
