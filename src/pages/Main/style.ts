@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import SttingImg from "../../asset/settingIcon.png";
+import SettingImg from "../../asset/settingIcon.png";
 
 export const MainForm = styled.div`
   border-radius: 10px;
@@ -24,7 +24,7 @@ export const Title = styled.p`
 `;
 
 export const SettingBtn = styled.div`
-  background-image: url(${SttingImg});
+  background-image: url(${SettingImg});
   background-size: cover;
   width: 14px;
   height: 14px;
