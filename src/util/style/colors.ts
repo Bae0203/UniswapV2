@@ -1,8 +1,9 @@
 export const fontColor = {
   normal: "#ffffff",
   active: "#959595",
-  etc: "#8F95A9",
   disabled: "#6F7075",
+  placeholder1: "#B3B9D1",
+  placeholder2: "#8F95A9",
 } as const;
 
 export const PersonalColor = {
