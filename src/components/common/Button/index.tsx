@@ -1,8 +1,8 @@
-import React, { ReactElement } from "react";
+import React, { ReactNode } from "react";
 import * as S from "./style";
 
 interface IButtonProps {
-  children: ReactElement | string;
+  children: ReactNode;
   isActive: boolean;
   onClick: () => void;
 }
