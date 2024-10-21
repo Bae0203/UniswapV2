@@ -11,4 +11,5 @@ export const PersonalColor = {
   personal70: "#222429",
   personal100: "#191B1F",
   etc: "#3B6CE2",
+  etcHover: "#2858CC",
 } as const;
