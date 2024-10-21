@@ -9,4 +9,4 @@ const TokenId = {
   COMP: { id: "compound-coin" },
   CRV: { id: "curve-dao-token" },
   ENS: { id: "ethereum-name-service" },
-};
+} as const;
