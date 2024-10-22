@@ -23,12 +23,7 @@ const TokenInput = ({ value, onChange, ...props }: ITokenInputProps) => {
         <S.PriceContext>{value != undefined && "$148.01"}</S.PriceContext>
       </div>
       <div>
-        <S.TokenBtn
-          onClick={() => {
-            console.log("setActiveModal(true)");
-            setActiveModal(true);
-          }}
-        >
+        <S.TokenBtn onClick={() => setActiveModal(true)}>
           <S.TokenImg />
           <S.TokenName>UDST</S.TokenName>
           <S.TokenImg />
