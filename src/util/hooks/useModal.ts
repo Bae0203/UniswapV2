@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useAtom } from "jotai";
+import { isModalActiveAtom } from "../../store/ActiveState";
 
 const useModal = () => {
-  const [activeModal, setActiveModal] = useState<boolean>(false);
+  const [activeModal, setActiveModal] = useAtom<boolean>(isModalActiveAtom);
   return { activeModal, setActiveModal };
 };
 
