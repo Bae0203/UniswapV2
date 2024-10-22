@@ -10,7 +10,7 @@ const activeButtonStyle = css`
 `;
 
 const disableButtonStyle = css`
-  color: ${({ theme }) => theme.font.disabled};
+  color: ${({ theme }) => theme.font.disabled1};
   background-color: ${({ theme }) => theme.personal.personal70};
 `;
 
