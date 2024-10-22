@@ -8,15 +8,23 @@ import { useSetAtom } from "jotai";
 
 const Calculate = () => {
   const setActiveAlert = useSetAtom(isAlertActiveAtom);
-  const { token1, token2 } = useCalculate();
+  const { token1, token2, ChangeEvent } = useCalculate();
   return (
     <>
       <S.InputWrap>
         <S.DownArrow>
           <S.DownArrowIcon />
         </S.DownArrow>
-        <TokenInput idx={0} value="10" />
-        <TokenInput idx={1} value="20" />
+        <TokenInput
+          idx={0}
+          value={token1?.toString()}
+          onChange={(e) => ChangeEvent(0, e)}
+        />
+        <TokenInput
+          idx={1}
+          value={token2?.toString()}
+          onChange={(e) => ChangeEvent(1, e)}
+        />
       </S.InputWrap>
 
       <Button
