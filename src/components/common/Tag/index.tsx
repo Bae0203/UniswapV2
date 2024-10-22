@@ -1,6 +1,8 @@
 import React from "react";
 import * as S from "./style";
 import useModal from "../../../util/hooks/useModal";
+import useTokenList from "../../../util/hooks/useTokenList";
+import useSaveList from "../../../util/hooks/useSaveList";
 
 interface ITagProps {
   name: string;
@@ -8,12 +10,16 @@ interface ITagProps {
 }
 
 const Tag = ({ name, isActive }: ITagProps) => {
-  const { setActiveModal } = useModal();
+  const { setActiveModal, modalIndex } = useModal();
+  const { activeToken, setActiveToken } = useTokenList();
   return (
     <S.TagWrap
       onClick={() => {
         if (isActive) return;
         setActiveModal(false);
+        let cp = [...activeToken];
+        cp[modalIndex] = name;
+        setActiveToken([...cp]);
       }}
       isActive={isActive}
     >
