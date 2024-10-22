@@ -2,6 +2,7 @@ import React from "react";
 import * as S from "./style";
 import { ITokenInfo } from "../../../util/constant/token";
 import useModal from "../../../util/hooks/useModal";
+import useSaveList from "../../../util/hooks/useSaveList";
 
 interface ITokenListInfo {
   value: ITokenInfo;
@@ -10,11 +11,13 @@ interface ITokenListInfo {
 
 const TokenListInfo = ({ value, isActive }: ITokenListInfo) => {
   const { setActiveModal } = useModal();
+  const { setTag } = useSaveList();
   return (
     <S.TokenBox
       onClick={() => {
         if (isActive) return;
         setActiveModal(false);
+        setTag(value.name);
         console.log(value.name);
       }}
     >
