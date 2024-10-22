@@ -14,12 +14,12 @@ const TokenList = ({ searchResult }: { searchResult: ITokenInfo[] }) => {
           <p>검색 결과가 없습니다.</p>
         </S.EmptyListWrap>
       )}
-      {searchResult.map((value) => {
+      {searchResult.map((value, idx) => {
         let isActive: boolean = false;
         activeToken.map((e) => {
           if (value.name == e) isActive = true;
         });
-        return <TokenListInfo value={value} isActive={isActive} />;
+        return <TokenListInfo key={idx} value={value} isActive={isActive} />;
       })}
     </S.MainWrap>
   );

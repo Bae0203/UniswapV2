@@ -9,12 +9,12 @@ const TagList = () => {
   const { activeToken } = useTokenList();
   return (
     <S.TagWrap>
-      {[...tagList].reverse().map((value) => {
+      {[...tagList].reverse().map((value, idx) => {
         let isActive: boolean = false;
         activeToken.map((e) => {
           if (value == e) isActive = true;
         });
-        return <Tag name={value} isActive={isActive} />;
+        return <Tag key={idx} name={value} isActive={isActive} />;
       })}
     </S.TagWrap>
   );
