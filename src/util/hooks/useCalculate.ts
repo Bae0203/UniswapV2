@@ -1,13 +1,17 @@
-import { ChangeEvent, useState } from "react";
-
-interface ICalculateProps {
-  value: string | number;
-  perPrice: string | number;
-}
+import { useAtom } from "jotai";
+import { ChangeEvent } from "react";
+import {
+  dollarAtom,
+  dollarQuoteAtom,
+  token1Atom,
+  token2Atom,
+} from "../../store/TokenState";
 
 const useCalculate = () => {
-  const [token1, setToken1] = useState<number | undefined>();
-  const [token2, setToken2] = useState<number | undefined>();
+  const [token1, setToken1] = useAtom<number | undefined>(token1Atom);
+  const [token2, setToken2] = useAtom<number | undefined>(token2Atom);
+  const [dollarQuote, setDollarQuote] = useAtom<number[]>(dollarQuoteAtom);
+  const [dollar, setDollar] = useAtom<number>(dollarAtom);
 
   const ChangeEvent = (index: number, event: ChangeEvent<HTMLInputElement>) => {
     if (index === 1) {
