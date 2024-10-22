@@ -1,8 +1,10 @@
 export interface ITokenInfo {
-  name: string;
+  name: Keys;
   id: string;
   amount: string;
 }
+
+export type Keys = keyof typeof TokenId;
 
 export const TokenId = {
   ETH: { id: "ethereum" },

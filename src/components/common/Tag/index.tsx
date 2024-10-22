@@ -3,15 +3,18 @@ import * as S from "./style";
 import useModal from "../../../util/hooks/useModal";
 import useTokenList from "../../../util/hooks/useTokenList";
 import useSaveList from "../../../util/hooks/useSaveList";
+import { Keys } from "../../../util/constant/token";
+import useCalculate from "../../../util/hooks/useCalculate";
 
 interface ITagProps {
-  name: string;
+  name: Keys;
   isActive: boolean;
 }
 
 const Tag = ({ name, isActive }: ITagProps) => {
   const { setActiveModal, modalIndex } = useModal();
   const { activeToken, setActiveToken } = useTokenList();
+  const { setToken1, setToken2, setDollar } = useCalculate();
   return (
     <S.TagWrap
       onClick={() => {
@@ -20,6 +23,9 @@ const Tag = ({ name, isActive }: ITagProps) => {
         let cp = [...activeToken];
         cp[modalIndex] = name;
         setActiveToken([...cp]);
+        setToken1(0);
+        setToken2(0);
+        setDollar(0);
       }}
       isActive={isActive}
     >

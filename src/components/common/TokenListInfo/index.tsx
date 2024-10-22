@@ -1,6 +1,6 @@
 import React from "react";
 import * as S from "./style";
-import { ITokenInfo } from "../../../util/constant/token";
+import { ITokenInfo, Keys } from "../../../util/constant/token";
 import useModal from "../../../util/hooks/useModal";
 import useSaveList from "../../../util/hooks/useSaveList";
 import useTokenList from "../../../util/hooks/useTokenList";
@@ -21,8 +21,10 @@ const TokenListInfo = ({ value, isActive }: ITokenListInfo) => {
         setActiveModal(false);
         setTag(value.name);
 
+        let a: Keys = value.name;
+
         let cp = [...activeToken];
-        cp[modalIndex] = value.name;
+        cp[modalIndex] = a;
         setActiveToken([...cp]);
         console.log(value.name, cp);
       }}
