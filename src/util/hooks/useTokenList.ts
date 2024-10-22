@@ -10,6 +10,12 @@ const useTokenList = () => {
   ]);
 
   useEffect(() => {
+    let newArr: string[] = [];
+    new Array(2).fill(0).map((_, idx) => newArr.push(TokenInfo[idx].name));
+    setActiveToken([...newArr]);
+  }, []);
+
+  useEffect(() => {
     let cpArr: ITokenInfo[] = [];
     TokenInfo.map((value) => {
       if (
@@ -19,10 +25,15 @@ const useTokenList = () => {
         cpArr.push(value);
     });
     setSearchResult([...cpArr]);
-    console.log(cpArr, searchResult);
   }, [searchValue]);
 
-  return { searchResult, searchValue, setSearchValue };
+  return {
+    searchResult,
+    searchValue,
+    setSearchValue,
+    activeToken,
+    setActiveToken,
+  };
 };
 
 export default useTokenList;

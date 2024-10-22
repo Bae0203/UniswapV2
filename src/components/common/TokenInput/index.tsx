@@ -3,12 +3,13 @@ import useModal from "../../../util/hooks/useModal";
 import * as S from "./style";
 
 interface ITokenInputProps {
+  idx: number;
   value?: string;
   onChange?: () => void;
 }
 
-const TokenInput = ({ value, onChange, ...props }: ITokenInputProps) => {
-  const { setActiveModal } = useModal();
+const TokenInput = ({ idx, value, onChange, ...props }: ITokenInputProps) => {
+  const { setActiveModal, setModalIndex } = useModal();
 
   return (
     <S.MainWrap>
@@ -23,7 +24,12 @@ const TokenInput = ({ value, onChange, ...props }: ITokenInputProps) => {
         <S.PriceContext>{value != undefined && "$148.01"}</S.PriceContext>
       </div>
       <div>
-        <S.TokenBtn onClick={() => setActiveModal(true)}>
+        <S.TokenBtn
+          onClick={() => {
+            setActiveModal(true);
+            setModalIndex(idx);
+          }}
+        >
           <S.TokenImg />
           <S.TokenName>UDST</S.TokenName>
           <S.OpenTokenListBtn />

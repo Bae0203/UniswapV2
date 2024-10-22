@@ -12,8 +12,8 @@ const Calculate = () => {
         <S.DownArrow>
           <S.DownArrowIcon />
         </S.DownArrow>
-        <TokenInput value="10" />
-        <TokenInput value="20" />
+        <TokenInput idx={0} value="10" />
+        <TokenInput idx={1} value="20" />
       </S.InputWrap>
 
       <Button isActive={token1 != undefined && token1 != 0} onClick={() => {}}>

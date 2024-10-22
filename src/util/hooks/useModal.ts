@@ -1,9 +1,10 @@
 import { useAtom } from "jotai";
-import { isModalActiveAtom } from "../../store/ActiveState";
+import { isModalActiveAtom, modalIndexAtom } from "../../store/ActiveState";
 
 const useModal = () => {
   const [activeModal, setActiveModal] = useAtom<boolean>(isModalActiveAtom);
-  return { activeModal, setActiveModal };
+  const [modalIndex, setModalIndex] = useAtom<number>(modalIndexAtom);
+  return { activeModal, setActiveModal, modalIndex, setModalIndex };
 };
 
 export default useModal;
