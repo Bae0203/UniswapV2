@@ -6,6 +6,12 @@ const TokenList = () => {
   const { searchResult } = useTokenList();
   return (
     <S.MainWrap>
+      {searchResult.length == 0 && (
+        <S.EmptyListWrap>
+          <S.EmptyImg />
+          <p>검색 결과가 없습니다.</p>
+        </S.EmptyListWrap>
+      )}
       {searchResult.map((value) => {
         return (
           <S.TokenBox>
