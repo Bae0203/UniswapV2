@@ -32,7 +32,7 @@ const Main = () => {
   useEffect(() => {
     if (activeToken[0]) {
       activeToken.map((name, idx) => {
-        getQuote(name, idx);
+        // getQuote(name, idx);
       });
     }
   }, [activeToken]);
