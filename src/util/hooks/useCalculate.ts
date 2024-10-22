@@ -15,38 +15,52 @@ const useCalculate = () => {
 
   const ChangeEvent = (index: number, event: ChangeEvent<HTMLInputElement>) => {
     let cpDollar = dollarQuote[index] * Number(event.target.value);
+
     setDollar(cpDollar);
     if (index === 0) {
+      cpDollar = dollarQuote[0] / dollarQuote[1];
+      let checkValue = cpDollar.toString().split(".");
+
+      if (checkValue[1] && checkValue[1].length > 10) {
+        let token = Number(
+          cpDollar.toString().split(".")[0] +
+            "." +
+            cpDollar.toString().split(".")[1].slice(0, 10)
+        );
+        cpDollar = token;
+      }
       setToken1(Number(event.target.value));
       if (token1 == undefined) setToken2(undefined);
-      setToken2(cpDollar / dollarQuote[1]);
-
-      let checkValue = (cpDollar / dollarQuote[1]).toString().split(".");
+      let token = calculateDollar(cpDollar, Number(event.target.value));
+      setToken2(token);
+    } else {
+      cpDollar = (dollarQuote[1] / dollarQuote[0]) * 1;
+      let checkValue = cpDollar.toString().split(".");
 
       if (checkValue[1] && checkValue[1].length > 10) {
         let token = Number(
-          (cpDollar / dollarQuote[1]).toString().split(".")[0] +
+          cpDollar.toString().split(".")[0] +
             "." +
-            (cpDollar / dollarQuote[1]).toString().split(".")[1].slice(0, 10)
+            cpDollar.toString().split(".")[1].slice(0, 10)
         );
-        setToken2(token);
+        cpDollar = token;
       }
-    } else {
       setToken2(Number(event.target.value));
       if (token2 == undefined) setToken1(undefined);
-      setToken1(cpDollar / dollarQuote[0]);
-
-      let checkValue = (cpDollar / dollarQuote[0]).toString().split(".");
-
-      if (checkValue[1] && checkValue[1].length > 10) {
-        let token = Number(
-          (cpDollar / dollarQuote[0]).toString().split(".")[0] +
-            "." +
-            (cpDollar / dollarQuote[0]).toString().split(".")[1].slice(0, 10)
-        );
-        setToken1(token);
-      }
+      let token = calculateDollar(cpDollar, Number(event.target.value));
+      setToken1(token);
     }
+  };
+
+  const calculateDollar = (perDollar: number, token: number) => {
+    let num = perDollar * token;
+    let checkValue = num.toString().split(".");
+
+    if (checkValue[1] && checkValue[1].length > 10) {
+      num = Number(checkValue[0] + "." + checkValue[1].slice(0, 10));
+    }
+
+    return num;
   };
 
   return {

@@ -31,11 +31,15 @@ const Main = () => {
 
   useEffect(() => {
     if (activeToken[0]) {
-      activeToken.map((name, idx) => {
-        // getQuote(name, idx);
-      });
+      getQuote(activeToken[0], 0);
     }
-  }, [activeToken]);
+  }, [activeToken[0]]);
+
+  useEffect(() => {
+    if (activeToken[1]) {
+      getQuote(activeToken[1], 1);
+    }
+  }, [activeToken[1]]);
 
   return (
     <>
