@@ -26,7 +26,7 @@ const TokenInput = ({ value, onChange, ...props }: ITokenInputProps) => {
         <S.TokenBtn onClick={() => setActiveModal(true)}>
           <S.TokenImg />
           <S.TokenName>UDST</S.TokenName>
-          <S.TokenImg />
+          <S.OpenTokenListBtn />
         </S.TokenBtn>
         <S.PriceContext isRight>n개</S.PriceContext>
       </div>
