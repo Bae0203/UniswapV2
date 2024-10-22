@@ -29,24 +29,27 @@ export const TokenInfoWrap = styled.div`
   box-sizing: border-box;
 `;
 
-export const TokenImg = styled.div`
+export const TokenImg = styled.div<{ isActive: boolean }>`
   //background-image : url();
   background-color: blue;
   width: 25px;
   height: 25px;
   border-radius: 50px;
   margin-right: 8px;
+  ${({ isActive }) => isActive && `filter: grayscale(50%);`}
 `;
 
-export const NormalText = styled.p`
+export const NormalText = styled.p<{ isActive: boolean }>`
   font-size: 12px;
-  color: ${({ theme }) => theme.font.normal};
+  color: ${({ isActive, theme }) =>
+    isActive ? theme.font.disabled1 : theme.font.normal};
   margin-bottom: 2px;
 `;
 
-export const SubText = styled.p`
+export const SubText = styled.p<{ isActive: boolean }>`
   font-size: 8px;
-  color: ${({ theme }) => theme.font.placeholder2};
+  color: ${({ isActive, theme }) =>
+    isActive ? theme.font.disabled2 : theme.font.placeholder2};
 `;
 
 export const EmptyListWrap = styled.div`
