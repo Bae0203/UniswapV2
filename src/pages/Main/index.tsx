@@ -4,7 +4,7 @@ import Alert from "../../components/Alert";
 import Calculate from "../../components/Calculate";
 import Modal from "../../components/Modal";
 import { isAlertActiveAtom } from "../../store/ActiveState";
-import { TokenId, Keys } from "../../util/constant/token";
+import { TokenId, type Keys } from "../../util/constant/token";
 import { customAxios } from "../../util/customAxios";
 import useCalculate from "../../util/hooks/useCalculate";
 import useModal from "../../util/hooks/useModal";
@@ -24,7 +24,7 @@ const Main = () => {
         let cp: number[] = [...dollarQuote];
         cp[idx] = e.data[TokenId[name].id].usd;
         setDollarQuote([...cp]);
-        console.log(e.data[TokenId[name].id].usd, idx, cp);
+        // console.log(e.data[TokenId[name].id].usd, idx, cp);
       })
       .catch((e) => console.log("error", e));
   };
@@ -32,14 +32,13 @@ const Main = () => {
   useEffect(() => {
     if (activeToken[0]) {
       activeToken.map((name, idx) => {
-        // getQuote(name, idx);
+        getQuote(name, idx);
       });
     }
   }, [activeToken]);
 
   return (
     <>
-      {/* <button onClick={() => console.log(dollarQuote)}>dd</button> */}
       {activeAlert && <Alert setActive={setActiveAlert} />}
       {activeModal && <Modal />}
       <S.MainForm>
@@ -47,15 +46,6 @@ const Main = () => {
           <S.Title>스왑</S.Title>
           <S.SettingBtn onClick={() => setActiveAlert(true)} />
         </S.Head>
-        {/* <button
-          onClick={() => {
-            let a = 12332.03939303;
-            let b: string = a.toString();
-            console.log(b.slice(0, 10));
-          }}
-        >
-          ddd
-        </button> */}
         <Calculate />
       </S.MainForm>
     </>

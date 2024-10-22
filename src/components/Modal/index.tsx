@@ -3,7 +3,6 @@ import { isAlertActiveAtom } from "../../store/ActiveState";
 import useModal from "../../util/hooks/useModal";
 import useTokenList from "../../util/hooks/useTokenList";
 import Input from "../common/Input/Input";
-import Tag from "../common/Tag";
 import TagList from "../TagList";
 import TokenList from "../TokenList";
 import * as S from "./style";

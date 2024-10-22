@@ -2,7 +2,6 @@ import React from "react";
 import * as S from "./style";
 import useModal from "../../../util/hooks/useModal";
 import useTokenList from "../../../util/hooks/useTokenList";
-import useSaveList from "../../../util/hooks/useSaveList";
 import { Keys } from "../../../util/constant/token";
 import useCalculate from "../../../util/hooks/useCalculate";
 

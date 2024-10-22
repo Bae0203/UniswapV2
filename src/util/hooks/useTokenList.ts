@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { activeTokenAtom } from "../../store/ActiveState";
-import { ITokenInfo, Keys, TokenInfo } from "../constant/token";
+import { type ITokenInfo, type Keys, TokenInfo } from "../constant/token";
 
 const useTokenList = () => {
   const [activeToken, setActiveToken] = useAtom<Keys[]>(activeTokenAtom);

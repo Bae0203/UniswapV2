@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Keys, TokenInfo } from "../constant/token";
+import { useEffect, useState } from "react";
+import { type Keys, TokenInfo } from "../constant/token";
 
 const useSaveList = () => {
   const [tagList, setTagList] = useState<Keys[]>([]);

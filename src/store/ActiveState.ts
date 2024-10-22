@@ -1,5 +1,5 @@
 import { atom } from "jotai";
-import { Keys } from "../util/constant/token";
+import { type Keys } from "../util/constant/token";
 
 export const isModalActiveAtom = atom<boolean>(false);
 export const modalIndexAtom = atom<number>(0);
