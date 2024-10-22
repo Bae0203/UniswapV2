@@ -1,12 +1,10 @@
 import React from "react";
 import { ITokenInfo } from "../../util/constant/token";
-import useModal from "../../util/hooks/useModal";
 import useTokenList from "../../util/hooks/useTokenList";
 import TokenListInfo from "../common/TokenListInfo";
 import * as S from "./style";
 
 const TokenList = ({ searchResult }: { searchResult: ITokenInfo[] }) => {
-  const { setActiveModal } = useModal();
   const { activeToken } = useTokenList();
   return (
     <S.MainWrap>
