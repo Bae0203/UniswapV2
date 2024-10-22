@@ -1,9 +1,10 @@
 import React from "react";
-import useTokenList from "../../util/hooks/useTokenList";
+import { ITokenInfo } from "../../util/constant/token";
+import useModal from "../../util/hooks/useModal";
 import * as S from "./style";
 
-const TokenList = () => {
-  const { searchResult } = useTokenList();
+const TokenList = ({ searchResult }: { searchResult: ITokenInfo[] }) => {
+  const { setActiveModal } = useModal();
   return (
     <S.MainWrap>
       {searchResult.length == 0 && (
@@ -14,7 +15,12 @@ const TokenList = () => {
       )}
       {searchResult.map((value) => {
         return (
-          <S.TokenBox>
+          <S.TokenBox
+            onClick={() => {
+              setActiveModal(false);
+              console.log(value.name);
+            }}
+          >
             <S.TokenInfoWrap>
               <S.TokenImg />
               <div>
