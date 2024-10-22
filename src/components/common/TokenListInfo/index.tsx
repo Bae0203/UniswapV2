@@ -4,6 +4,7 @@ import { ITokenInfo, Keys } from "../../../util/constant/token";
 import useModal from "../../../util/hooks/useModal";
 import useSaveList from "../../../util/hooks/useSaveList";
 import useTokenList from "../../../util/hooks/useTokenList";
+import useCalculate from "../../../util/hooks/useCalculate";
 
 interface ITokenListInfo {
   value: ITokenInfo;
@@ -13,6 +14,7 @@ interface ITokenListInfo {
 const TokenListInfo = ({ value, isActive }: ITokenListInfo) => {
   const { setActiveModal, modalIndex } = useModal();
   const { activeToken, setActiveToken } = useTokenList();
+  const { setToken1, setToken2, setDollar } = useCalculate();
   const { setTag } = useSaveList();
   return (
     <S.TokenBox
@@ -26,7 +28,10 @@ const TokenListInfo = ({ value, isActive }: ITokenListInfo) => {
         let cp = [...activeToken];
         cp[modalIndex] = a;
         setActiveToken([...cp]);
-        console.log(value.name, cp);
+        // console.log(value.name, cp);
+        setToken1(0);
+        setToken2(0);
+        setDollar(0);
       }}
     >
       <S.TokenInfoWrap>
