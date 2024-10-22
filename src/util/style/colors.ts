@@ -1,7 +1,8 @@
 export const fontColor = {
   normal: "#ffffff",
   active: "#959595",
-  disabled: "#6F7075",
+  disabled1: "#6F7075",
+  disabled2: "#8F95A9",
   placeholder1: "#B3B9D1",
   placeholder2: "#8F95A9",
 } as const;
