@@ -1,5 +1,6 @@
 import React from "react";
 import useModal from "../../../util/hooks/useModal";
+import useTokenList from "../../../util/hooks/useTokenList";
 import * as S from "./style";
 
 interface ITokenInputProps {
@@ -10,6 +11,7 @@ interface ITokenInputProps {
 
 const TokenInput = ({ idx, value, onChange, ...props }: ITokenInputProps) => {
   const { setActiveModal, setModalIndex } = useModal();
+  const { activeToken } = useTokenList();
 
   return (
     <S.MainWrap>
@@ -31,7 +33,7 @@ const TokenInput = ({ idx, value, onChange, ...props }: ITokenInputProps) => {
           }}
         >
           <S.TokenImg />
-          <S.TokenName>UDST</S.TokenName>
+          <S.TokenName>{activeToken[idx]}</S.TokenName>
           <S.OpenTokenListBtn />
         </S.TokenBtn>
         <S.PriceContext isRight>n개</S.PriceContext>
