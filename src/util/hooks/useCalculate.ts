@@ -14,25 +14,52 @@ const useCalculate = () => {
   const [dollar, setDollar] = useAtom<number>(dollarAtom);
 
   const ChangeEvent = (index: number, event: ChangeEvent<HTMLInputElement>) => {
-    if (index === 1) {
+    let cpDollar = dollarQuote[index] * Number(event.target.value);
+    setDollar(cpDollar);
+    if (index === 0) {
       setToken1(Number(event.target.value));
       if (token1 == undefined) setToken2(undefined);
-      else setToken2(calculateToken({ value: token1, perPrice: 1.2 }));
+      setToken2(cpDollar / dollarQuote[1]);
+
+      let checkValue = (cpDollar / dollarQuote[1]).toString().split(".");
+
+      if (checkValue[1] && checkValue[1].length > 10) {
+        let token = Number(
+          (cpDollar / dollarQuote[1]).toString().split(".")[0] +
+            "." +
+            (cpDollar / dollarQuote[1]).toString().split(".")[1].slice(0, 10)
+        );
+        setToken2(token);
+      }
     } else {
       setToken2(Number(event.target.value));
       if (token2 == undefined) setToken1(undefined);
-      else setToken1(calculateToken({ value: token2, perPrice: 1.2 }));
+      setToken1(cpDollar / dollarQuote[0]);
+
+      let checkValue = (cpDollar / dollarQuote[0]).toString().split(".");
+
+      if (checkValue[1] && checkValue[1].length > 10) {
+        let token = Number(
+          (cpDollar / dollarQuote[0]).toString().split(".")[0] +
+            "." +
+            (cpDollar / dollarQuote[0]).toString().split(".")[1].slice(0, 10)
+        );
+        setToken1(token);
+      }
     }
   };
 
-  const calculateToken = ({ value, perPrice }: ICalculateProps) => {
-    let price: number = Number(value) * Number(perPrice);
-    if (price.toString().replace(".", "").length > 10)
-      price = Number(price.toString().slice(0.1));
-    return price;
+  return {
+    token1,
+    token2,
+    setToken1,
+    setToken2,
+    dollar,
+    setDollar,
+    dollarQuote,
+    setDollarQuote,
+    ChangeEvent,
   };
-
-  return { token1, token2, calculateToken, ChangeEvent };
 };
 
 export default useCalculate;
