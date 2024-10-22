@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { TokenInfo } from "../constant/token";
+import { Keys, TokenInfo } from "../constant/token";
 
 const useSaveList = () => {
-  const [tagList, setTagList] = useState<string[]>([]);
+  const [tagList, setTagList] = useState<Keys[]>([]);
 
   const getLocalStorage = (key: string) => {
     let value: any = localStorage.getItem(key);
@@ -17,7 +17,7 @@ const useSaveList = () => {
     setTagList(JSON.parse(getLocalStorage("uniswapTag")));
 
     if (JSON.parse(getLocalStorage("uniswapTag")) == null) {
-      let newArr: string[] = [];
+      let newArr: Keys[] = [];
       new Array(2).fill(0).map((_, idx) => newArr.push(TokenInfo[idx].name));
 
       setLocalStorage({ key: "uniswapTag", value: newArr });
@@ -25,14 +25,14 @@ const useSaveList = () => {
     }
   }, []);
 
-  const setTag = (name: string) => {
+  const setTag = (name: Keys) => {
     let flag: boolean = false;
-    let cpArr: string[] = [...tagList];
+    let cpArr: Keys[] = [...tagList];
     tagList.map((e, idx) => {
       if (!flag && e == name) {
         flag = true;
 
-        let name: string = tagList[idx];
+        let name: Keys = tagList[idx];
         cpArr.splice(idx, 1);
         cpArr.push(name);
         setTagList([...cpArr]);

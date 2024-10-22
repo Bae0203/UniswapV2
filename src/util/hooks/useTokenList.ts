@@ -1,10 +1,10 @@
 import { useAtom } from "jotai";
 import React, { useEffect, useState } from "react";
 import { activeTokenAtom } from "../../store/ActiveState";
-import { ITokenInfo, TokenInfo } from "../constant/token";
+import { ITokenInfo, Keys, TokenInfo } from "../constant/token";
 
 const useTokenList = () => {
-  const [activeToken, setActiveToken] = useAtom<string[]>(activeTokenAtom);
+  const [activeToken, setActiveToken] = useAtom<Keys[]>(activeTokenAtom);
   const [searchValue, setSearchValue] = useState<string>("");
 
   const [searchResult, setSearchResult] = useState<ITokenInfo[]>([
@@ -13,7 +13,7 @@ const useTokenList = () => {
 
   useEffect(() => {
     if (activeToken.length == 0) {
-      let newArr: string[] = [];
+      let newArr: Keys[] = [];
       new Array(2).fill(0).map((_, idx) => newArr.push(TokenInfo[idx].name));
       setActiveToken([...newArr]);
     }
