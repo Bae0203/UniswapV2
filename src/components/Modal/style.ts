@@ -42,6 +42,7 @@ export const BackBtn = styled.div`
   background-size: cover;
   width: 10px;
   height: 10px;
+  cursor: pointer;
 `;
 
 export const TokenListManageBtn = styled.div`
@@ -54,6 +55,8 @@ export const TokenListManageBtn = styled.div`
   align-items: center;
   color: ${({ theme }) => theme.personal.etc};
   font-size: 10px;
+
+  cursor: pointer;
 
   &:hover {
     background-color: ${({ theme }) => theme.personal.personal100};

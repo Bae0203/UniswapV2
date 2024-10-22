@@ -28,4 +28,5 @@ export const SettingBtn = styled.div`
   background-size: cover;
   width: 14px;
   height: 14px;
+  cursor: pointer;
 `;
