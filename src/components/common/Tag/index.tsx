@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 import useModal from "../../../util/hooks/useModal";
 import useTokenList from "../../../util/hooks/useTokenList";
-import { Keys } from "../../../util/constant/token";
+import { type Keys } from "../../../util/constant/token";
 import useCalculate from "../../../util/hooks/useCalculate";
 
 interface ITagProps {

@@ -1,5 +1,5 @@
 import React from "react";
-import { ITokenInfo } from "../../util/constant/token";
+import { type ITokenInfo } from "../../util/constant/token";
 import useTokenList from "../../util/hooks/useTokenList";
 import TokenListInfo from "../common/TokenListInfo";
 import * as S from "./style";

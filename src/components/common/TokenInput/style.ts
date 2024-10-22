@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import openTokenList from "../../../asset/openTokenList.png";
+import OpenTokenList from "../../../asset/openTokenList.png";
 
 export const MainWrap = styled.div`
   width: 100%;
@@ -53,7 +53,7 @@ export const OpenTokenListBtn = styled.div`
   width: 14px;
   height: 14px;
   border-radius: 20px;
-  background-image: url(${openTokenList});
+  background-image: url(${OpenTokenList});
   background-size: cover;
 `;
 

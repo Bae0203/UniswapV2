@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React, { type ChangeEvent } from "react";
 import useCalculate from "../../../util/hooks/useCalculate";
 import useModal from "../../../util/hooks/useModal";
 import useTokenList from "../../../util/hooks/useTokenList";
