@@ -8,6 +8,7 @@ export const fontColor = {
 } as const;
 
 export const PersonalColor = {
+  disabled: "#444444",
   personal10: "#41434F",
   personal50: "#2D2F36",
   personal70: "#222429",
