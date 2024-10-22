@@ -2,6 +2,7 @@ import React from "react";
 import { ITokenInfo } from "../../util/constant/token";
 import useModal from "../../util/hooks/useModal";
 import useTokenList from "../../util/hooks/useTokenList";
+import TokenListInfo from "../common/TokenListInfo";
 import * as S from "./style";
 
 const TokenList = ({ searchResult }: { searchResult: ITokenInfo[] }) => {
@@ -20,24 +21,7 @@ const TokenList = ({ searchResult }: { searchResult: ITokenInfo[] }) => {
         activeToken.map((e) => {
           if (value.name == e) isActive = true;
         });
-        return (
-          <S.TokenBox
-            onClick={() => {
-              if (isActive) return;
-              setActiveModal(false);
-              console.log(value.name);
-            }}
-          >
-            <S.TokenInfoWrap>
-              <S.TokenImg isActive={isActive} />
-              <div>
-                <S.NormalText isActive={isActive}>{value.name}</S.NormalText>
-                <S.SubText isActive={isActive}>{value.id}</S.SubText>
-              </div>
-            </S.TokenInfoWrap>
-            <S.NormalText isActive={isActive}>{value.amount}</S.NormalText>
-          </S.TokenBox>
-        );
+        return <TokenListInfo value={value} isActive={isActive} />;
       })}
     </S.MainWrap>
   );
